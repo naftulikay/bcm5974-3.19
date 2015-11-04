@@ -11,8 +11,9 @@ all:
 	fpm -f -s dir -t deb -n $(PKG_NAME) -v $(PKG_VERSION) -a all -p build/ \
 		-d dkms -d build-essential -d linux-headers-generic-lts-vivid \
 		-m $(MAINTAINER) --description $(PKG_DESCRIPTION) \
-		--post-install scripts/post-install.sh --pre-uninstall scripts/pre-uninstall.sh \
-		--post-uninstall scripts/post-uninstall.sh \
-		--directories /usr/src/bcm5974-4.2 \
 		--deb-changelog CHANGELOG \
+		--post-install scripts/post-install.sh --pre-uninstall scripts/pre-uninstall.sh \
 		--exclude '.git*' usr/
+
+clean:
+	rm build/*.deb

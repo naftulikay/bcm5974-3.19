@@ -7,12 +7,23 @@ dkms_version="4.2"
 
 case "$1" in
   configure)
-    set +e
-    dkms install $dkms_name/$dkms_version --all
-    set -e
-  ;;
+    # add
+    if ! dkms status -m $dkms_name -v $dkms_version | egrep '(added|built|installed)' >/dev/null ; then
+      # if it's not been added yet, add it
+      dkms add -m $dkms_name -v $dkms_version
+    fi
 
-  abort-upgrade|abort-remove|abort-deconfigure)
+    # build
+    if ! dkms status -m $dkms_name -v $dkms_version  | egrep '(built|installed)' >/dev/null ; then
+      # if it's not been built yet, build it
+      dkms build $dkms_name/$dkms_version
+    fi
+
+    # install
+    if ! dkms status -m $dkms_name -v $dkms_version  | egrep '(installed)' >/dev/null; then
+      # if it's not been installed yet, install it
+      dkms install $dkms_name/$dkms_version
+    fi
   ;;
 
   *)

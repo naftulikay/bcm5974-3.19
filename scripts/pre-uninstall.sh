@@ -7,12 +7,10 @@ dkms_version="4.2"
 
 case "$1" in
   remove|upgrade|deconfigure)
-    set +e
-    dkms remove $dkms_name/$dkms_version --all
-    set -e
-  ;;
-
-  failed-upgrade)
+    if dkms status -m $dkms_name -v $dkms_version | egrep '(added|built|installed)' >/dev/null ; then
+      # if dkms bindings exist, remove them
+      dkms remove $dkms_name/$dkms_version --all
+    fi
   ;;
 
   *)
