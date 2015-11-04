@@ -1,0 +1,4 @@
+57a6e0a759c0c6fa90dafd11a3befd21  usr/src/bcm5974-4.2/bcm5974.c
+96b33ebffa2d9e9d6c7d0decb14fafb9  usr/src/bcm5974-4.2/dkms.conf
+f00856420d7b028d901f633ab832bdf7  usr/src/bcm5974-4.2/Makefile
+d41d8cd98f00b204e9800998ecf8427e  usr/share/X11/xorg.conf.d/52-synaptics-bcm5974.conf
