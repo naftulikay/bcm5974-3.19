@@ -1,0 +1,5 @@
+bcm5974-4.2-dkms (1.0.0-1) UNRELEASED; urgency=low
+
+ * Initial release.
+
+ -- Naftuli Tzvi Kay <rfkrocktk@gmail.com> Wed, 4 Nov 2015 18:08:09 +0000
