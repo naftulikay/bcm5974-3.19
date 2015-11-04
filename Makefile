@@ -16,4 +16,4 @@ all:
 		--exclude '.git*' usr/
 
 clean:
-	rm build/*.deb
+	rm -f build/$(PKG_NAME)_$(PKG_VERSION)_all.deb
